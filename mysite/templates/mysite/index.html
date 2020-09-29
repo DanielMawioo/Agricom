@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+{% load leaflet_tags %}
+<html lang="en">
+ <meta charset="utf-8">
+    <head>
+    {% leaflet_js %}
+	{% leaflet_css %}
+       
+        <title>Agricom</title>
+        <style type="text/css">
+		    #gis {width: 100%;height:400px;}
+	    </style>
+        <script type="text/javascript" src="{% static 'mysite/dist/leaflet.ajax.js' %}" >	</script>
+    </head>
+<body>
+    <h5>Incidences Reported</h5
+    >
+<br>
+        <script type="text/javascript">
+            function our_layers(map,options){});
+            var datasets = new L.GeoJSON.AJAX("{% url 'country' %}",{
+			
+			onEachFeature: function(feature,layer){
+				layer.bindPopup(feature.properties.countries.toString());
+			}
+
+		});
+
+
+         </script>
+            {% leaflet_map "gis" %}
+            {% leaflet_map "gis" callback="window.our_layers" %}
+
+           
+
+</body>
+</html>
