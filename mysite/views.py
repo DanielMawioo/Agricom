@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import WorldBorder,Incidence
+from django.http import HttpResponse
 from django.core.serializers import serialize
+from .models import WorldBorder,Incidence
+
 
 # Create your views here.
 def index(request):
@@ -9,10 +11,10 @@ def index(request):
 
 def country_datasets(request):
     countries = serialize('geojson', WorldBorder.objects.all())
-    return render(request, countries,content_type='json')
+    return HttpResponse(countries,content_type='json')
 
 
 def point_datasets(request):
     points = serialize('geojson', Incidence.objects.all())
-    return render(request, points,content_type='json',)
+    return HttpResponse(points,content_type='json',)
 

@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'world',
         'USER': 'postgres',
-        'PASSWORD': 'Admin12345',
+        'PASSWORD': 'admin12345',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -130,9 +130,9 @@ STATIC_URL = '/static/'
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-.023, 36.87),
-    'DEFAULT_ZOOM': 5,
+    'DEFAULT_ZOOM': 3,
     'MAX_ZOOM': 20,
-    'MIN_ZOOM':3,
+    'MIN_ZOOM': 2,
     'SCALE': 'both',
     'ATTRIBUTION_PREFIX': 'Inspired by AderTech'
 }
